@@ -1,0 +1,36 @@
+name: presentation
+description: Saglac.io demo project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/austinparker.jpg
+    - assets/joellord.jpg
+    - assets/ophelie.jpg
+    - assets/damien.jpg
+    - assets/joel.jpg
+    - assets/juliensamuel.jpg
+    - assets/micael.jpg
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/Poppins-Regular.ttf
+        - asset: assets/Poppins-ExtraBold.ttf
+          weight: 700
