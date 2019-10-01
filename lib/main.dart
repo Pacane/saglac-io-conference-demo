@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'domain.dart';
 import 'src/widgets/widgets.dart';
 
+final Random seed = Random.secure();
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -48,8 +50,6 @@ class ConferenciersPage extends StatelessWidget {
   }
 }
 
-final Random seed = Random.secure();
-
 class ConferenciersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -61,11 +61,19 @@ class ConferenciersList extends StatelessWidget {
   }
 }
 
-List<Widget> get tiles {
-  return presenters
-      .map((p) => GridTile(
-            child: GridTileMainWidget(p),
-            footer: GridBottomBar(p),
-          ))
-      .toList();
-}
+List<Widget> get tiles => presenters
+    .map((p) => GridTile(
+          child: GridTileMainWidget(p),
+          footer: GridBottomBar(p),
+        ))
+    .toList();
+
+//List<Widget> get tiles {
+//  return List.generate(
+//      200, (i) => presenters[seed.nextInt(presenters.length - 1)])
+//      .map((p) => GridTile(
+//            child: GridTileMainWidget(p),
+//            footer: GridBottomBar(p),
+//          ))
+//      .toList();
+//}
