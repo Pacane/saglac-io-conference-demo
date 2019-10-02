@@ -57,3 +57,33 @@ class GridTileMainWidget extends StatelessWidget {
         ],
       );
 }
+
+List<Widget> tiles(List<Presenter> presenters) => presenters
+    .map((p) => GridTile(
+          child: GridTileMainWidget(p),
+          footer: GridBottomBar(p),
+        ))
+    .toList();
+
+//List<Widget> tiles(List<Presenter> presenters) => presenters.isEmpty
+//    ? []
+//    : List.generate(200, (i) => presenters[seed.nextInt(presenters.length - 1)])
+//        .map((p) => GridTile(
+//              child: GridTileMainWidget(p),
+//              footer: GridBottomBar(p),
+//            ))
+//        .toList();
+
+class ConferenciersStreamWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => StreamBuilder(
+      initialData: [],
+      stream: fetchPresenters(),
+      builder: (context, snapshot) {
+        return GridView.custom(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+          childrenDelegate: SliverChildListDelegate.fixed(tiles(snapshot.data)),
+        );
+      });
+}
