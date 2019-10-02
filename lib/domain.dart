@@ -1,3 +1,7 @@
+import 'dart:math';
+
+final Random seed = Random.secure();
+
 List<Presenter> presenters = [
   Presenter(
     'Austin Parker',
@@ -42,4 +46,16 @@ class Presenter {
   final String talkName;
 
   Presenter(this.name, this.imagePath, this.talkName);
+}
+
+Stream<List<Presenter>> fetchPresenters() async* {
+  yield [presenters.first];
+
+  await Future.delayed(Duration(seconds: 1));
+
+  yield [...presenters.sublist(0, 2), presenters[2]];
+
+  await Future.delayed(Duration(seconds: 3));
+
+  yield presenters;
 }
