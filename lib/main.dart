@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'domain.dart';
-import 'src/widgets/stateful.dart';
 import 'src/widgets/widgets.dart';
 
 void main() => runApp(MyApp());
@@ -40,9 +39,9 @@ class ConferenciersPage extends StatelessWidget {
             ),
           ]),
         ),
-//        body: Center(child: ConferenciersList()),
+        body: Center(child: ConferenciersList()),
 //        body: Center(child: SocialIcon(SocialNetwork.instagram)),
-        body: Center(child: SocialSelector()),
+//        body: Center(child: SocialSelector()),
       );
 }
 
