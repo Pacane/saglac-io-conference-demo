@@ -31,13 +31,11 @@ class SocialIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => IconButton(
-    onPressed: () {},
-    iconSize: 100.0,
-    icon: Icon(
-      findIcon(social),
-      color: Theme
-          .of(context)
-          .accentColor,
-    ),
+        onPressed: () {},
+        iconSize: 100.0,
+        icon: Icon(
+          findIcon(social),
+          color: Theme.of(context).accentColor,
+        ),
       );
 }

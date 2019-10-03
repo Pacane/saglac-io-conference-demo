@@ -17,8 +17,7 @@ class SocialSelectorState extends State<SocialSelector> {
   }
 
   @override
-  Widget build(BuildContext context) =>
-      Column(
+  Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SocialIcon(socialNetwork),

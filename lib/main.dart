@@ -42,7 +42,7 @@ class ConferenciersPage extends StatelessWidget {
         ),
 //        body: Center(child: ConferenciersList()),
 //        body: Center(child: SocialIcon(SocialNetwork.instagram)),
-    body: Center(child: SocialSelector()),
+        body: Center(child: SocialSelector()),
       );
 }
 
