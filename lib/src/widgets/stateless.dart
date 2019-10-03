@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-enum SocialNetwork { facebook, twitter, instagram }
+class SocialNetwork {
+  final String name;
+
+  const SocialNetwork._(this.name);
+
+  static const SocialNetwork facebook = SocialNetwork._('Facebook');
+  static const SocialNetwork twitter = SocialNetwork._('Twitter');
+  static const SocialNetwork instagram = SocialNetwork._('Instagram');
+}
 
 IconData findIcon(SocialNetwork social) {
   switch (social) {
@@ -17,15 +24,18 @@ IconData findIcon(SocialNetwork social) {
   }
 }
 
-class SocialIconButton extends StatelessWidget {
+class SocialIcon extends StatelessWidget {
   final SocialNetwork social;
-  final String url;
 
-  SocialIconButton(this.social, this.url);
+  SocialIcon(this.social);
 
   @override
   Widget build(BuildContext context) => IconButton(
-        icon: Icon(findIcon(social)),
-        onPressed: () => launch(url),
+        onPressed: () {},
+        iconSize: 100.0,
+        icon: Icon(
+          findIcon(social),
+          color: Theme.of(context).accentColor,
+        ),
       );
 }

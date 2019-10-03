@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
 
-class StoreItem {
-  final String name;
+import 'stateless.dart';
 
-  StoreItem(this.name);
+class SocialSelector extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => new SocialSelectorState();
 }
 
-class StoreItemWidget extends StatefulWidget {
-  final StoreItem item;
+class SocialSelectorState extends State<SocialSelector> {
+  SocialNetwork socialNetwork = SocialNetwork.facebook;
 
-  const StoreItemWidget({Key key, @required this.item}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() {
-    return StoreItemState();
+  void onNetworkSelected(SocialNetwork network) {
+    setState(() {
+      socialNetwork = network;
+    });
   }
-}
-
-class StoreItemState extends State<StoreItemWidget> {
-  bool isFavorite;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100.0,
-      child: Column(
+  Widget build(BuildContext context) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(widget.item.name),
-          IconButton(
-            icon: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border,
-            ),
-            onPressed: () => setState(() {
-              isFavorite = !isFavorite;
-            }),
+          SocialIcon(socialNetwork),
+          Column(
+            children: <Widget>[
+              buildRadioListTile(SocialNetwork.facebook),
+              buildRadioListTile(SocialNetwork.twitter),
+              buildRadioListTile(SocialNetwork.instagram),
+            ],
           )
         ],
-      ),
+      );
+
+  RadioListTile<SocialNetwork> buildRadioListTile(SocialNetwork socialNetwork) {
+    return RadioListTile(
+      value: socialNetwork,
+      groupValue: this.socialNetwork,
+      onChanged: (value) => onNetworkSelected(value),
+      title: Text(socialNetwork.name),
     );
   }
 }
