@@ -40,10 +40,23 @@ class ConferenciersPage extends StatelessWidget {
           ]),
         ),
         body: Center(child: ConferenciersList()),
+//    body: Center(child: ConferenciersStreamWidget()),
 //        body: Center(child: SocialIcon(SocialNetwork.instagram)),
 //        body: Center(child: SocialSelector()),
       );
 }
+
+/*
+    - B->I
+    - HR
+    - HR2
+    - Outline
+    - Inspect + Padding
+    - Platform
+    - Perf
+    - Stream
+    - SL + SF
+ */
 
 class ConferenciersList extends StatelessWidget {
   @override
