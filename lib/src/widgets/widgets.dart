@@ -77,13 +77,12 @@ List<Widget> tiles(List<Presenter> presenters) => presenters
 class ConferenciersStreamWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => StreamBuilder(
-      initialData: [],
+      initialData: <Presenter>[],
       stream: fetchPresenters(),
-      builder: (context, snapshot) {
-        return GridView.custom(
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
-          childrenDelegate: SliverChildListDelegate.fixed(tiles(snapshot.data)),
-        );
-      });
+      builder: (context, snapshot) => GridView.custom(
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            childrenDelegate:
+                SliverChildListDelegate.fixed(tiles(snapshot.data)),
+          ));
 }
