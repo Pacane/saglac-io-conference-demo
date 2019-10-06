@@ -8,15 +8,13 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Saglac.io Conférence',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ConferenciersPage(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'Saglac.io Conférence',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: ConferenciersPage(),
+      );
 }
 
 class ConferenciersPage extends StatelessWidget {
@@ -60,11 +58,9 @@ class ConferenciersPage extends StatelessWidget {
 
 class ConferenciersList extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return GridView.custom(
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
-      childrenDelegate: SliverChildListDelegate.fixed(tiles(presenters)),
-    );
-  }
+  Widget build(BuildContext context) => GridView.custom(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+        childrenDelegate: SliverChildListDelegate.fixed(tiles(presenters)),
+      );
 }
