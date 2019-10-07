@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'domain.dart';
+import 'src/widgets/theme.dart';
 import 'src/widgets/widgets.dart';
 
 void main() => runApp(MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
         title: 'Saglac.io Conférence',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          accentColor: customPink,
         ),
         home: ConferenciersPage(),
       );
@@ -38,7 +40,7 @@ class ConferenciersPage extends StatelessWidget {
           ]),
         ),
         body: Center(child: ConferenciersList()),
-//    body: Center(child: ConferenciersStreamWidget()),
+//        body: Center(child: ConferenciersStreamWidget()),
 //        body: Center(child: SocialIcon(SocialNetwork.instagram)),
 //        body: Center(child: SocialSelector()),
       );
